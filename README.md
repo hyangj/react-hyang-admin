@@ -37,4 +37,3 @@ npm run preview
 react-admin-template/
 
 ```
-# react-hyang-admin

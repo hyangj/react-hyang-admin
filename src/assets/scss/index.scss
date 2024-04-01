@@ -1,0 +1,18 @@
+// Tailwind Css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "variables";
+
+// Base
+@import "reset";
+@import "fonts";
+
+// Layout & components
+@import "root";
+@import "icons";
+@import "pages/sidebar";
+@import "pages/header";
+@import "pages/setting";
+@import "pages/login";

@@ -1,0 +1,334 @@
+// Variables
+
+// Color system
+// scss-docs-start gray-color-variables
+$white: #fff !default;
+$gray-20: #f8f8f8 !default;
+$gray-40: #f6f6f6 !default;
+$gray-60: #f1f1f1 !default;
+$gray-80: #e9e9e9 !default;
+$gray-100: #e1e1e1 !default;
+$gray-120: #dbdbdb !default;
+$gray-140: #d4d4d4 !default;
+$gray-160: #ccc !default;
+$gray-180: #bcbcbc !default;
+$gray-200: #9a9a9a !default;
+$gray-220: #808080 !default;
+$gray-240: #707070 !default;
+$gray-260: #666 !default;
+$gray-280: #333 !default;
+$black: #000 !default;
+// scss-docs-end gray-color-variables
+
+// scss-docs-start gray-colors-map
+$grays: (
+  "gray20": $gray-20,
+  "gray40": $gray-40,
+  "gray60": $gray-60,
+  "gray80": $gray-80,
+  "gray100": $gray-100,
+  "gray120": $gray-120,
+  "gray140": $gray-140,
+  "gray160": $gray-160,
+  "gray180": $gray-180,
+  "gray200": $gray-200,
+  "gray220": $gray-220,
+  "gray240": $gray-240,
+  "gray260": $gray-260,
+  "gray280": $gray-280) !default;
+// scss-docs-end gray-colors-map
+
+// scss-docs-start blue-gray-color-variables
+$bluegray-100: #99A8B5 !default;
+$bluegray-200: #EEF2F5 !default;
+$bluegray-300: #F2F5F6 !default;
+// scss-docs-end blue-gray-color-variables
+
+// scss-docs-start gray-colors-map
+$bluegrays: (
+  "bluegray100": $bluegray-100,
+  "bluegray200": $bluegray-200,
+  "bluegray300": $bluegray-300) !default;
+// scss-docs-end gray-colors-map
+
+// scss-docs-start point-color-variables
+$point-01: #d40000 !default;
+$point-02: #f9b037 !default;
+$point-03: #00d5a2 !default;
+$point-04: #359dff !default;
+$point-05: #9e5fff !default;
+$point-06: #ef0000 !default;
+$point-07: #F8F1F1 !default;
+// scss-docs-end point-color-variables
+
+// scss-docs-start black(opacity) colors variables
+$black-5: rgba(0, 0, 0, 0.05
+);
+$black-10: rgba(0, 0, 0, 0.1);
+$black-15: rgba(0, 0, 0, 0.15);
+$black-20: rgba(0, 0, 0, 0.2);
+$black-25: rgba(0, 0, 0, 0.25);
+$black-30: rgba(0, 0, 0, 0.3);
+$black-35: rgba(0, 0, 0, 0.35);
+$black-40: rgba(0, 0, 0, 0.4);
+$black-45: rgba(0, 0, 0, 0.45);
+$black-50: rgba(0, 0, 0, 0.5);
+$black-55: rgba(0, 0, 0, 0.55);
+$black-60: rgba(0, 0, 0, 0.6);
+$black-65: rgba(0, 0, 0, 0.65);
+$black-70: rgba(0, 0, 0, 0.7);
+$black-75: rgba(0, 0, 0, 0.75);
+$black-80: rgba(0, 0, 0, 0.8);
+$black-85: rgba(0, 0, 0, 0.85);
+$black-90: rgba(0, 0, 0, 0.9);
+$black-95: rgba(0, 0, 0, 0.95);
+$black-colors: (
+  "black5": $black-5,
+  "black10": $black-10,
+  "black15": $black-15,
+  "black20": $black-20,
+  "black25": $black-25,
+  "black30": $black-30,
+  "black35": $black-35,
+  "black40": $black-40,
+  "black45": $black-45,
+  "black50": $black-50,
+  "black55": $black-55,
+  "black60": $black-60,
+  "black65": $black-65,
+  "black70": $black-70,
+  "black75": $black-75,
+  "black80": $black-80,
+  "black85": $black-85,
+  "black90": $black-90,
+  "black95": $black-95,
+);
+// scss-docs-end black(opacity) colors variables
+
+// scss-docs-start white(opacity) colors variables
+$white-5: rgba(255, 255, 255, 0.05);
+$white-10: rgba(255, 255, 255, 0.1);
+$white-15: rgba(255, 255, 255, 0.15);
+$white-20: rgba(255, 255, 255, 0.2);
+$white-25: rgba(255, 255, 255, 0.25);
+$white-30: rgba(255, 255, 255, 0.3);
+$white-35: rgba(255, 255, 255, 0.35);
+$white-40: rgba(255, 255, 255, 0.4);
+$white-45: rgba(255, 255, 255, 0.45);
+$white-50: rgba(255, 255, 255, 0.5);
+$white-55: rgba(255, 255, 255, 0.55);
+$white-60: rgba(255, 255, 255, 0.6);
+$white-65: rgba(255, 255, 255, 0.65);
+$white-70: rgba(255, 255, 255, 0.7);
+$white-75: rgba(255, 255, 255, 0.75);
+$white-80: rgba(255, 255, 255, 0.8);
+$white-85: rgba(255, 255, 255, 0.85);
+$white-90: rgba(255, 255, 255, 0.9);
+$white-95: rgba(255, 255, 255, 0.95);
+$white-colors: (
+  "white5": $white-5,
+  "white10": $white-10,
+  "white15": $white-15,
+  "white20": $white-20,
+  "white25": $white-25,
+  "white30": $white-30,
+  "white35": $white-35,
+  "white40": $white-40,
+  "white45": $white-45,
+  "white50": $white-50,
+  "white55": $white-55,
+  "white60": $white-60,
+  "white65": $white-65,
+  "white70": $white-70,
+  "white75": $white-75,
+  "white80": $white-80,
+  "white85": $white-85,
+  "white90": $white-90,
+  "white95": $white-95,
+);
+// scss-docs-end white(opacity) colors variables
+
+// scss-docs-start colors-map
+$colors: (
+  "black": $black,
+  "white": $white,
+  "point01": $point-01,
+  "point02": $point-02,
+  "point03": $point-03,
+  "point04": $point-04,
+  "point05": $point-05,
+  "point06": $point-06,
+  "point07": $point-07,
+  "transparent": transparent) !default;
+// scss-docs-end colors-map
+
+// scss-docs-start theme-color-variables
+$primary: #151515 !default;
+$secondary: #476C97 !default;
+$danger: $point-01 !default;
+$warning: $point-02 !default;
+$success: $point-04 !default;
+// scss-docs-end theme-color-variables
+
+// The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7.
+$min-contrast-ratio: 4.5 !default;
+
+// Customize the light and dark text colors for use in our color contrast function.
+$color-contrast-dark: $black !default;
+$color-contrast-light: $white !default;
+
+// scss-docs-start theme-colors-map
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "danger": $danger,
+  "warning": $warning) !default;
+// scss-docs-end theme-colors-map
+
+// scss-docs-start light theme-colors-map
+$light-theme-colors: (
+  "primary": $secondary,
+  "secondary": $primary,
+  ) !default;
+// scss-docs-end light theme-colors-map
+
+
+// Prefix for :root CSS variables
+$variable-prefix: ui- !default;
+$prefix: $variable-prefix !default;
+
+
+// Font
+$font-family: "Pretendard",
+  -apple-system,
+  BlinkMacSystemFont,
+  "Apple SD Gothic Neo",
+  Roboto,
+  "Malgun Gothic",
+  "맑은 고딕",
+  Dotum,
+  "돋움",
+  sans-serif !default;
+
+$font-size-base: 1.4rem !default;
+
+$font-weight-normal: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-semibold: 600 !default;
+$font-weight-bold: 700 !default;
+
+$font-weight-base: $font-weight-normal !default;
+
+$line-height-base: 1.42 !default;
+
+$h1-font-size: $font-size-base * 2 !default;
+$h2-font-size: $font-size-base * 1.428 !default;
+$h3-font-size: $font-size-base * 1.214 !default;
+$h4-font-size: $font-size-base * 1.142 !default;
+$h5-font-size: $font-size-base * 1.071 !default;
+
+
+// scss-docs-start font-sizes
+$font-sizes: (
+  1: $h1-font-size,
+  2: $h2-font-size,
+  3: $h3-font-size,
+  4: $h4-font-size,
+  5: $h5-font-size) !default;
+// scss-docs-end font-sizes
+
+// scss-docs-start headings-variables
+$headings-font-weight: 600 !default;
+$headings-line-height: 1.2 !default;
+// scss-docs-end headings-variables
+
+// scss-docs-start type-variables
+$text-muted: $gray-220 !default;
+// scss-docs-end type-variables
+
+// Options
+$enable-grid-classes: true !default;
+$enable-negative-margins: false !default;
+// $enable-container-classes:    true !default;
+$enable-cssgrid: false !default;
+$enable-important-utilities: true !default;
+
+
+// Grid columns
+$grid-columns: 12 !default;
+$grid-gutter-width: 2rem !default;
+$grid-row-columns: 6 !default;
+
+
+// Grid breakpoints
+// scss-docs-start grid-breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px) !default;
+// scss-docs-end grid-breakpoints
+
+
+// Spacing
+// scss-docs-start spacer-variables-maps
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: $spacer * .2,
+  2: $spacer * .4,
+  3: $spacer * .6,
+  4: $spacer * .8,
+  5: $spacer,
+  6: $spacer * 1.2,
+  7: $spacer * 1.4,
+  8: $spacer * 1.6,
+  9: $spacer * 1.8,
+  10: $spacer * 2,
+  ) !default;
+// scss-docs-end spacer-variables-maps
+
+
+// Body
+$body-bg: $bluegray-100 !default;
+$body-color: $black !default;
+
+// Document
+$document-max-width: 192rem;
+$document-min-width: 160rem;
+
+
+// Position
+// scss-docs-start position-map
+$position-values: (
+  0: 0,
+  50: 50%,
+  100: 100%) !default;
+// scss-docs-end position-map
+
+
+// Components
+//
+// Define common padding and border radius sizes and more.
+
+// scss-docs-start border-radius-variables
+$border-radius-pill: 5rem !default;
+// scss-docs-end border-radius-variables
+
+// Z-index
+$loading-index: 3000;
+$modal-index: 2000;
+$layout-index: 1000;
+
+// Header
+$header-height: 6.4rem;
+
+// Sidebar
+$open-sidebar-width: 26rem;
+$close-sidebar-width: 6rem;
+
+// Setting
+$setting-width: 30rem;

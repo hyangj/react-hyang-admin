@@ -1,0 +1,12 @@
+// border-radius
+.is-rounded {
+  border-radius: 0.4rem !important;
+}
+
+.is-rounded-0 {
+  border-radius: 0 !important;
+}
+
+.is-rounded-pill {
+  border-radius: $border-radius-pill !important;
+}
