@@ -1,9 +1,9 @@
-import NotFoundPage from '@/views/error/NotFoundPage';
 import React from 'react';
-import { createBrowserRouter } from 'react-router-dom';
+import { Navigate, createBrowserRouter } from 'react-router-dom';
 
+const NotFoundPage = React.lazy(() => import('@/views/error/NotFoundPage.tsx'));
 const DefaultLayout = React.lazy(() => import('@/layouts/Default'));
-const Login = React.lazy(() => import('@/views/Login'));
+const Login = React.lazy(() => import('@/views/login'));
 const Main = React.lazy(() => import('@/views/Main.tsx'));
 
 // Guide
@@ -12,8 +12,9 @@ const Used = React.lazy(() => import('@/views/guide/Used.tsx'));
 const Debug = React.lazy(() => import('@/views/guide/Debug.tsx'));
 
 // Dev
-const Team = React.lazy(() => import('@/views/dev/Team'));
+const Leader = React.lazy(() => import('@/views/dev/leader'));
 const Store = React.lazy(() => import('@/views/dev/Store'));
+const Api = React.lazy(() => import('@/views/dev/Api'));
 
 const routes = createBrowserRouter([
   {
@@ -26,6 +27,7 @@ const routes = createBrowserRouter([
     element: <DefaultLayout />,
     errorElement: <DefaultLayout />,
     children: [
+      { path: '', element: <Navigate to="/main" /> },
       {
         path: 'main',
         element: <Main />,
@@ -36,6 +38,7 @@ const routes = createBrowserRouter([
   {
     path: 'guide',
     element: <DefaultLayout />,
+    errorElement: <NotFoundPage />,
     children: [
       {
         path: 'used',
@@ -55,12 +58,16 @@ const routes = createBrowserRouter([
     errorElement: <NotFoundPage />,
     children: [
       {
-        path: 'team',
-        element: <Team />,
+        path: 'leader',
+        element: <Leader />,
       },
       {
         path: 'store',
         element: <Store />,
+      },
+      {
+        path: 'api',
+        element: <Api />,
       },
     ],
   },

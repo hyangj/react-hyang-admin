@@ -1,19 +1,21 @@
 .sidebar {
   width: $close-sidebar-width;
   height: 100vh;
-  position: fixed;
+  position: sticky;
   z-index: 1;
   top: 0;
   left: 0;
   background-color: var(--ui-primary);
   overflow-x: hidden;
+  overflow-y: auto;
   transition: width 0.3s;
   box-shadow: 0px 0px 1px var(--ui-primary);
+  margin-bottom: 2rem;
 
 
   &.open {
-    width: $open-sidebar-width;
-    padding: 0 4rem 4rem;
+    width: calc($open-sidebar-width - 6rem);
+    padding: 0 2rem 2rem;
   }
 
   &:not(.open) {
@@ -71,26 +73,23 @@
 }
 
 .sidebar__logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @apply flex items-center justify-center;
 
   img {
-    height: 2.5rem;
+    @apply h-[2.5rem];
   }
 }
 
 .sidebar__menu {
-  padding-top: 2rem;
+  @apply pt-[2rem];
 
 
   .sidebar__menu-item+.sidebar__menu-item {
-    padding-top: 2.8rem;
+    @apply pt-[2.8rem];
   }
 
   .menu__title {
-    display: flex;
-    align-items: center;
+    @apply flex items-center;
     height: 4.8rem;
     font-size: 1.8rem;
     color: rgb(255, 255, 255);
@@ -100,30 +99,25 @@
   }
 
   .sidebar__subMenu-item {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 4.4rem;
-    font-size: 1.4rem;
-    font-weight: 400;
-    line-height: 2rem;
+    @apply flex items-center w-full h-[4.4rem] text-[1.4rem] font-[400] leading-[2rem] no-underline cursor-pointer;
     letter-spacing: 0px;
-    text-decoration: none;
-    cursor: pointer;
     transition: color 0.3s;
     white-space: nowrap;
     color: rgb(154, 154, 154);
 
+    &.selected {
+      @apply text-white;
+    }
+
     a {
-      color: currentColor;
-      text-decoration: none;
+      @apply text-current no-underline;
     }
 
     &:hover {
-      color: white;
+      @apply text-white;
 
       a {
-        color: currentColor;
+        @apply text-current;
       }
     }
   }
@@ -131,16 +125,39 @@
 
 
 .sidebar.open+main {
-  padding-left: $open-sidebar-width;
   transition: all 0.3s;
+  width: calc(100% - $open-sidebar-width);
+
+  .header {
+    left: $open-sidebar-width;
+  }
+
+  >.content {
+    // width: calc(100% - $open-sidebar-width);
+  }
 }
 
 
 .sidebar+main {
-  padding-left: $close-sidebar-width;
   transition: all 0.3s;
+  width: calc(100% - $close-sidebar-width);
+
+  .header {
+    left: $close-sidebar-width;
+  }
 
   >.content {
-    padding: 4rem;
+    @apply p-[4rem];
+    min-width: 35rem;
+    overflow: auto;
+    height: calc(100vh - $header-height);
+  }
+}
+
+// PC
+@media screen and (min-width: 1280px) {
+  .sidebar.open {
+    padding: 0 4rem 4rem;
+    width: $open-sidebar-width;
   }
 }

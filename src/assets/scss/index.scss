@@ -5,6 +5,10 @@
 
 @import "variables";
 
+// helpers
+@import "helpers/globally";
+@import "helpers/animations";
+
 // Base
 @import "reset";
 @import "fonts";
@@ -16,3 +20,5 @@
 @import "pages/header";
 @import "pages/setting";
 @import "pages/login";
+
+@import "antd/modal";

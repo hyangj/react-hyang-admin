@@ -10,3 +10,8 @@
 .is-rounded-pill {
   border-radius: $border-radius-pill !important;
 }
+
+.is-required::after {
+  @apply content-['*'] text-orange-600 pl-1;
+
+}

@@ -7,10 +7,10 @@
 .login__box {
   position: absolute;
   top: calc(50% - 20rem);
-  left: calc(50% - 20rem);
+  left: calc(50% - 17rem);
   border-radius: 1.2rem;
-  padding: 4rem 4rem 8rem;
-  max-width: 50rem;
+  padding: 2rem 2rem 4rem;
+  max-width: 40rem;
   box-shadow: 0px 0px 3px #00000014;
   background-color: white;
   color: var(--ui-primary);
@@ -35,5 +35,40 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  width: 35rem;
+  width: 30rem;
+}
+
+.login__description {
+  @apply flex justify-center;
+  color: var(--ui-gray180);
+
+  span {
+    @apply cursor-pointer;
+
+    &:hover {
+      color: var(--ui-gray200);
+      transition: all 0.3s;
+    }
+  }
+
+  .login__description-item+.login__description-item {
+    &::before {
+      content: '';
+      border-left: 1px solid var(--ui-gray180);
+      @apply mx-3;
+    }
+  }
+}
+
+// PC
+@media screen and (min-width: 1280px) {
+  .login__box {
+    padding: 4rem 4rem 8rem;
+    max-width: 50rem;
+    left: calc(50% - 20rem);
+  }
+
+  .login__form {
+    width: 35rem;
+  }
 }

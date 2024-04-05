@@ -2,7 +2,7 @@ import '@/assets/scss/pages/example.scss';
 import useAppStore from '@/store/appStore.ts';
 import { Button, Divider, List } from 'antd';
 
-const Store = () => {
+const Api = () => {
   const { debug, isOpenSidebar, setDebug, setIsOpenSidebar } = useAppStore();
 
   const handleChangeDebug = () => {
@@ -17,10 +17,11 @@ const Store = () => {
     { title: 'Debug', value: debug.toString(), action: handleChangeDebug },
     { title: 'Sidebar', value: isOpenSidebar.toString(), action: handleChangeSidebar },
   ];
+
   return (
     <>
       <h1 className="component__h1">Development</h1>
-      <h2 className="component__h2"> Local Storage Test (AppStore) </h2>
+      <h2 className="component__h2"> API Tester </h2>
       <Divider />
 
       <List
@@ -43,4 +44,4 @@ const Store = () => {
   );
 };
 
-export default Store;
+export default Api;

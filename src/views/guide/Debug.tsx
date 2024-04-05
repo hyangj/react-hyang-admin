@@ -13,7 +13,9 @@ export default function Debug() {
       <div className="content">
         <h3 className="component__h3"> Local Storage &#62; AppStore</h3>
         <ul className="flex flex-col gap-3">
-          <li>debug : 디버깅용 옵션 / true로 하면 숨겨진 옵션들이 보인다.</li>
+          <li>
+            debug : 디버깅용 옵션 / true로 하면 숨겨진 옵션들이 보이고 사용 할 수 있다.
+          </li>
           <li>isOpenSidebar : Sidebar 오픈 여부 </li>
           <li>color : Primary Color</li>
 

@@ -1,0 +1,25 @@
+.ant-modal {
+  top: 20%;
+
+  .ant-modal-content {
+    @apply py-[2rem] px-0;
+
+    >* {
+      @apply px-[2.4rem];
+    }
+  }
+}
+
+
+.ant-modal-body {
+  max-height: calc(100vh - 40rem);
+  overflow-y: auto;
+}
+
+
+// PC
+@media screen and (min-width: 1280px) {
+  .ant-modal {
+    top: calc(50% - 35rem);
+  }
+}

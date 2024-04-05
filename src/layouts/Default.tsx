@@ -1,6 +1,6 @@
-import AppHeader from '@/components/AppHeader';
-import AppSettings from '@/components/AppSettings';
-import AppSidebar from '@/components/AppSidebar';
+import AppHeader from '@/components/layouts/AppHeader';
+import AppSettings from '@/components/layouts/AppSettings';
+import AppSidebar from '@/components/layouts/AppSidebar';
 import useAppStore from '@/store/appStore.ts';
 import { Outlet } from 'react-router-dom';
 

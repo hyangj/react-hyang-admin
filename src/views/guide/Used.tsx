@@ -11,12 +11,12 @@ const list = [
   {
     title: 'React.js',
     image: Icon_React,
-    description: 'www.instagram.cohttps://react.dev',
+    description: 'https://react.dev',
   },
   {
     title: 'Tailwind CSS',
     image: Icon_Tailwind,
-    description: 'https://tailwindcss.com/',
+    description: 'https://tailwindcss.com',
   },
   { title: 'Ant Design', image: Icon_Antd, description: 'https://ant.design' },
   {
@@ -41,9 +41,9 @@ export default function Used() {
           <Card
             key={index}
             hoverable
-            className="w-[30rem]"
+            className="w-[20rem]"
             cover={
-              <img className="h-[30rem]" alt={`${item.title} Card`} src={item.image} />
+              <img className="h-[15rem]" alt={`${item.title} Card`} src={item.image} />
             }
           >
             <Meta title={item.title} description={item.description} />

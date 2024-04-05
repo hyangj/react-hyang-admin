@@ -19,7 +19,7 @@ const useAppStore = create(
   persist<AppState & AppAction>(
     (set) => ({
       isOpenSidebar: true,
-      debug: false,
+      debug: true,
       color: '#151515',
       setIsOpenSidebar: (value) => set({ isOpenSidebar: value }),
       setDebug: (value) => set({ debug: value }),
