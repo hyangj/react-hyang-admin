@@ -23,3 +23,13 @@
     top: calc(50% - 35rem);
   }
 }
+
+
+.ant-modal.ant-modal-confirm,
+.ant-modal.ant-modal-confirm-error {
+  top: 40%;
+
+  .ant-modal-content {
+    @apply p-[2rem];
+  }
+}

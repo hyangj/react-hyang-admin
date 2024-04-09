@@ -1,7 +1,5 @@
 .login {
-  background-color: #f3f5f7;
-  width: 100vw;
-  height: 100vh;
+  @apply bg-[#f3f5f7] w-screen h-screen;
 }
 
 .login__box {
@@ -20,22 +18,11 @@
 }
 
 .login__title {
-  display: flex;
-  font-size: 3.6rem;
-  font-weight: 700;
-  margin-bottom: 4rem;
+  @apply flex text-[3.6rem] font-bold mb-[4rem];
 
   span {
-    padding: 0.5rem 0 0 1rem;
+    @apply pt-[0.5rem] pl-[1rem];
   }
-}
-
-
-.login__form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  width: 30rem;
 }
 
 .login__description {

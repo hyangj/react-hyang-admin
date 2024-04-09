@@ -72,7 +72,7 @@ const Leader = () => {
             <li>가장 최근에 등록된 분노 정도를 표현한 차트입니다.</li>
             <li>분노 게이지 등록 후 수정은 불가합니다.</li>
             <li>3분 간격으로 등록 할 수 있습니다.</li>
-            <li className="pt-2 font-bold">{`마지막 등록 시간 : ${moment(angryList.at(-1)?.create_date).format('YYYY년 MM월 DD일 hh:mm:ss')}`}</li>
+            <li className="pt-2 font-bold">{`마지막 등록 시간 : ${moment(angryList.at(-1)?.create_date).format('YYYY년 MM월 DD일 HH:mm:ss')}`}</li>
           </ul>
 
           <Button

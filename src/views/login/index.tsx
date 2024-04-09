@@ -1,20 +1,29 @@
-import { Button, Input } from 'antd';
+import login from '@/utils/auth.tsx';
+import { Button, Form, Input, Modal } from 'antd';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Join from './modal/Join';
 
 const Login = () => {
   const navigate = useNavigate();
-  const [id, setId] = useState('');
-  const [password, setPassword] = useState('');
+
+  const [form] = Form.useForm();
+  const { error } = Modal;
 
   const [isOpenJoin, setIsOpenJoin] = useState(false);
 
-  const onClickLogin = () => {
-    navigate('/main');
-    console.log('id : ', id);
-    console.log('pw : ', password);
-    // navigate('/main');
+  const handleLogin = (values: { user_id: string; password: string }) => {
+    login(values).then((result) => {
+      if (result) {
+        navigate('/main');
+      } else {
+        error({
+          title: 'Error',
+          content: '아이디 또는 비밀번호를 확인해 주세요.',
+          okText: '확인',
+        });
+      }
+    });
   };
   return (
     <>
@@ -24,21 +33,28 @@ const Login = () => {
             <span>Login</span>
           </h1>
 
-          <form className="login__form">
-            <Input
-              placeholder="아이디를 입력해주세요."
-              size="large"
-              onChange={({ target }) => setId(target.value)}
-              value={id}
-            />
-            <Input.Password
-              placeholder="비밀번호를 입력해주세요"
-              size="large"
-              onChange={({ target }) => setPassword(target.value)}
-              value={password}
-            />
+          <Form
+            form={form}
+            name="horizontal_login"
+            layout="vertical"
+            className="login__form"
+            onFinish={handleLogin}
+          >
+            <Form.Item
+              name="user_id"
+              rules={[{ required: true, message: '아이디를 입력해주세요.' }]}
+            >
+              <Input placeholder="아이디를 입력해주세요." size="large" />
+            </Form.Item>
 
-            <div className="login__description">
+            <Form.Item
+              name="password"
+              rules={[{ required: true, message: '비밀번호를 입력해주세요.' }]}
+            >
+              <Input.Password placeholder="비밀번호를 입력해주세요." size="large" />
+            </Form.Item>
+
+            <Form.Item className="login__description">
               <span className="login__description-item">아이디 찾기</span>
               <span className="login__description-item">비밀번호 찾기</span>
               <span
@@ -47,17 +63,14 @@ const Login = () => {
               >
                 회원가입
               </span>
-            </div>
+            </Form.Item>
 
-            <Button
-              className="mt-10"
-              type="primary"
-              size="large"
-              onClick={() => onClickLogin()}
-            >
-              로그인
-            </Button>
-          </form>
+            <Form.Item>
+              <Button type="primary" htmlType="submit" size="large" className="w-full">
+                로그인
+              </Button>
+            </Form.Item>
+          </Form>
         </div>
       </section>
 
