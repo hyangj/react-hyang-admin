@@ -1,3 +1,4 @@
+import { isLogin } from '@/utils/auth';
 import React from 'react';
 import { Navigate, createBrowserRouter } from 'react-router-dom';
 
@@ -15,8 +16,17 @@ const Debug = React.lazy(() => import('@/views/guide/Debug.tsx'));
 const Leader = React.lazy(() => import('@/views/dev/leader'));
 const Store = React.lazy(() => import('@/views/dev/Store'));
 const Api = React.lazy(() => import('@/views/dev/Api'));
+const Device = React.lazy(() => import('@/views/dev/Device'));
+
+// User
+const Profile = React.lazy(() => import('@/views/user/Profile'));
 
 const routes = createBrowserRouter([
+  {
+    path: '*',
+    element: <Navigate to={isLogin ? '/' : '/login'} />,
+    errorElement: <NotFoundPage />,
+  },
   {
     path: '/login',
     element: <Login />,
@@ -24,7 +34,8 @@ const routes = createBrowserRouter([
   },
   {
     path: '/',
-    element: <DefaultLayout />,
+    element: isLogin ? <DefaultLayout /> : <Navigate to="/login" replace />,
+    // element: <DefaultLayout />,
     errorElement: <DefaultLayout />,
     children: [
       { path: '', element: <Navigate to="/main" /> },
@@ -33,48 +44,55 @@ const routes = createBrowserRouter([
         element: <Main />,
         errorElement: <NotFoundPage />,
       },
-    ],
-  },
-  {
-    path: 'guide',
-    element: <DefaultLayout />,
-    errorElement: <NotFoundPage />,
-    children: [
       {
-        path: 'used',
-        element: <Used />,
+        path: 'guide',
         errorElement: <NotFoundPage />,
+        children: [
+          { path: '', element: <Navigate to="used" /> },
+          {
+            path: 'used',
+            element: <Used />,
+            errorElement: <NotFoundPage />,
+          },
+          {
+            path: 'debug',
+            element: <Debug />,
+            errorElement: <NotFoundPage />,
+          },
+        ],
       },
       {
-        path: 'debug',
-        element: <Debug />,
+        path: 'dev',
         errorElement: <NotFoundPage />,
+        children: [
+          { path: '', element: <Navigate to="leader" /> },
+          {
+            path: 'leader',
+            element: <Leader />,
+          },
+          {
+            path: 'store',
+            element: <Store />,
+          },
+          {
+            path: 'api',
+            element: <Api />,
+          },
+        ],
+      },
+      {
+        path: 'user',
+        errorElement: <NotFoundPage />,
+        children: [
+          { path: '', element: <Navigate to="profile" /> },
+          {
+            path: 'profile',
+            element: <Profile />,
+            errorElement: <NotFoundPage />,
+          },
+        ],
       },
     ],
-  },
-  {
-    path: '/dev',
-    element: <DefaultLayout />,
-    errorElement: <NotFoundPage />,
-    children: [
-      {
-        path: 'leader',
-        element: <Leader />,
-      },
-      {
-        path: 'store',
-        element: <Store />,
-      },
-      {
-        path: 'api',
-        element: <Api />,
-      },
-    ],
-  },
-  {
-    path: '*',
-    element: <NotFoundPage />,
-    errorElement: <NotFoundPage />,
   },
 ]);
 

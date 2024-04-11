@@ -1,3 +1,4 @@
+import service from '@/services';
 import { apiAuth } from '@/services/auth';
 
 interface AuthType {
@@ -5,15 +6,29 @@ interface AuthType {
   password: string;
 }
 
-const login = async (form: AuthType) => {
+export async function login(form: AuthType) {
   try {
-    const result = await apiAuth.login(form);
+    const { data } = await apiAuth.login(form);
+    const { accessToken } = data;
 
-    return result;
+    service.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+
+    return data;
   } catch (e) {
-    console.log('login error');
+    console.log('Login error');
     return false;
   }
-};
+}
 
-export default login;
+export async function logout() {
+  try {
+    localStorage.removeItem('userStore');
+    window.location.href = '/';
+  } catch (e) {
+    console.log('Logout error');
+    return false;
+  }
+}
+
+export const isLogin =
+  localStorage.userStore && JSON.parse(localStorage.userStore).state.user;

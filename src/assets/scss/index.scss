@@ -5,9 +5,14 @@
 
 @import "variables";
 
+// Mixin
+@import "mixins/visually-hidden";
+
 // helpers
 @import "helpers/globally";
 @import "helpers/animations";
+@import "helpers/visually-hidden";
+
 
 // Base
 @import "reset";

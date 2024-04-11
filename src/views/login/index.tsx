@@ -1,11 +1,11 @@
-import login from '@/utils/auth.tsx';
+import useUserStore from '@/store/userStore';
+import { login } from '@/utils/auth.tsx';
 import { Button, Form, Input, Modal } from 'antd';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Join from './modal/Join';
 
 const Login = () => {
-  const navigate = useNavigate();
+  const { setUser } = useUserStore();
 
   const [form] = Form.useForm();
   const { error } = Modal;
@@ -15,7 +15,8 @@ const Login = () => {
   const handleLogin = (values: { user_id: string; password: string }) => {
     login(values).then((result) => {
       if (result) {
-        navigate('/main');
+        setUser(result);
+        window.location.href = '/';
       } else {
         error({
           title: 'Error',

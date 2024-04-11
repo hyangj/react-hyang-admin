@@ -1,3 +1,4 @@
+import '@/assets/scss/components/_loader.scss';
 import React, { useEffect, useState } from 'react';
 
 interface LoaderType {
@@ -14,7 +15,7 @@ function Loader({ size = 'sm' }: LoaderType) {
   });
 
   return (
-    <div>
+    <div className="loader__mask">
       <div className={`loader ${sizeClass}`}>
         <div className="spinner">
           <span className="visually-hidden">Loading...</span>

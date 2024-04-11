@@ -1,0 +1,122 @@
+.before-load {
+  overflow: hidden;
+}
+
+.loader__mask {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #606060cc;
+}
+
+.loader {
+  position: relative;
+  height: inherit;
+  width: inherit;
+  top: 40%;
+  left: 50%;
+
+  .spinner {
+    width: 6.6rem;
+    height: 6.6rem;
+    border-width: 0.6rem;
+    border-style: solid;
+    border-color: #151515;
+    border-bottom-color: #e5e5e5;
+    border-radius: 50%;
+    animation: rotation 0.66s linear infinite;
+  }
+
+  &.is-sm {
+    .spinner {
+      width: 2rem;
+      height: 2rem;
+      border-width: 0.4rem;
+    }
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// svg loading
+.loading {
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  // opacity: 0;
+  transition: 0.5s;
+  background-color: #fff;
+}
+
+@-webkit-keyframes loading-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loading-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes loading-circle-ani {
+  0% {
+    stroke-dashoffset: 157;
+  }
+
+  75% {
+    stroke-dashoffset: -147;
+  }
+
+  100% {
+    stroke-dashoffset: -157;
+  }
+}
+
+@keyframes loading-circle-ani {
+  0% {
+    stroke-dashoffset: 157;
+  }
+
+  75% {
+    stroke-dashoffset: -147;
+  }
+
+  100% {
+    stroke-dashoffset: -157;
+  }
+}
+
+.loading__circle {
+  width: 54px;
+  height: 54px;
+  -webkit-animation: loading-spin 3s infinite;
+  animation: loading-spin 3s infinite;
+
+  circle {
+    stroke: #000;
+    stroke-width: 4;
+    stroke-dasharray: 157; // document.querySelector('.loading-circle circle').getTotalLength()  로 dasharray 최대값을 알아낼 수 있다.
+    stroke-dashoffset: 0;
+    fill: transparent; // 색이 아예 안들어가면 none으로해도 무방
+    -webkit-animation: loading-circle-ani 1s infinite;
+    animation: loading-circle-ani 1s infinite;
+  }
+}

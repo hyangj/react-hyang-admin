@@ -7,7 +7,6 @@ import { RouterProvider } from 'react-router-dom';
 
 const App = () => {
   const { color, setColor } = useAppStore();
-
   useEffect(() => {
     setColor(color);
   }, []);
@@ -28,7 +27,7 @@ const App = () => {
         },
       }}
     >
-      <Suspense fallback={<Loader size="" />}>
+      <Suspense fallback={<Loader />}>
         <RouterProvider router={routes} />
       </Suspense>
     </ConfigProvider>

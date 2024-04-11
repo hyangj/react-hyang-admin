@@ -15,7 +15,7 @@ const Main = () => {
         <span className="block pt-5">Created by HYANG J.</span>
       </div>
 
-      <div className="buttonList"></div>
+      <div className="buttonList" />
     </div>
   );
 };
