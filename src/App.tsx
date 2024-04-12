@@ -24,6 +24,9 @@ const App = () => {
           Button: {
             defaultShadow: '',
           },
+          InputNumber: {
+            activeShadow: '',
+          },
         },
       }}
     >

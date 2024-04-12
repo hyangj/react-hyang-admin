@@ -1,4 +1,4 @@
-import { Button, Divider, Input, Modal } from 'antd';
+import { Button, Divider, Input, InputNumber, Modal } from 'antd';
 
 import { apiLeader } from '@/services/leader';
 import { AngryType } from '@/types';
@@ -10,7 +10,7 @@ import LineChart from './components/LineChart';
 const Leader = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [writer, setWriter] = useState('');
-  const [guage, setGuage] = useState('');
+  const [guage, setGuage] = useState(0);
 
   const [angryList, setAngryList] = useState<AngryType[]>([]);
   const [chartData, setChartData] = useState<{
@@ -21,8 +21,24 @@ const Leader = () => {
   const { error } = Modal;
 
   const onCreateGuage = async () => {
+    if (!writer) {
+      return error({
+        title: 'Error',
+        content: '작성자 성함을 입력해주세요.',
+        okText: '확인',
+      });
+    }
+
+    if (!guage) {
+      return error({
+        title: 'Error',
+        content: '분노 게이지 값을 입력해주세요.',
+        okText: '확인',
+      });
+    }
+
     try {
-      await apiLeader.postAngry({ writer, guage: parseInt(guage) });
+      await apiLeader.postAngry({ writer, guage: guage });
     } catch (e) {
       console.log(e);
     } finally {
@@ -35,6 +51,7 @@ const Leader = () => {
     const last = new Date(angryList.at(-1)?.create_date || '').getTime();
     const current = new Date().getTime();
 
+    // 3분
     if (last + 1000 * 60 * 3 <= current) {
       setIsOpen(true);
     } else {
@@ -123,13 +140,16 @@ const Leader = () => {
             />
           </div>
           <div className="mt-10">
-            <span className="is-required">분노 게이지</span>
-            <Input
-              className="mt-2"
+            <span className="is-required">분노 게이지 (1 ~ 100)</span>
+            <InputNumber
+              className="mt-2 w-full"
               placeholder="현재 분노 정도를 입력해주세요."
               size="large"
-              onChange={({ target }) => setGuage(target.value)}
+              min={1}
+              max={100}
+              onChange={(value) => setGuage(value || 0)}
               value={guage}
+              defaultValue={1}
             />
           </div>
         </form>
