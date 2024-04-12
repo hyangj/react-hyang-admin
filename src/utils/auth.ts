@@ -31,4 +31,4 @@ export async function logout() {
 }
 
 export const isLogin =
-  localStorage.userStore && JSON.parse(localStorage.userStore).state.user;
+  localStorage.userStore && JSON.parse(localStorage.userStore).state.user.user_id;

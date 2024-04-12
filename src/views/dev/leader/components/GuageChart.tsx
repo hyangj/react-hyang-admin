@@ -1,5 +1,3 @@
-import '@/assets/scss/pages/example.scss';
-
 import ReactECharts from 'echarts-for-react';
 import React, { useMemo } from 'react';
 

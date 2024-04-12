@@ -1,4 +1,3 @@
-import '@/assets/scss/pages/example.scss';
 import { Button, Divider, Input, Modal } from 'antd';
 
 import { apiLeader } from '@/services/leader';

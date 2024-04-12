@@ -3,7 +3,6 @@ import Icon_Echarts from '@/assets/images/icon-echarts.png';
 import Icon_React from '@/assets/images/icon-react.png';
 import Icon_Tailwind from '@/assets/images/icon-tailwind.png';
 import Icon_Zustand from '@/assets/images/icon-zustand.jpeg';
-import '@/assets/scss/pages/example.scss';
 import { Card } from 'antd';
 import Meta from 'antd/es/card/Meta';
 

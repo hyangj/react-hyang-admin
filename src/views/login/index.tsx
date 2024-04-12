@@ -1,5 +1,5 @@
 import useUserStore from '@/store/userStore';
-import { login } from '@/utils/auth.tsx';
+import { login } from '@/utils/auth.ts';
 import { Button, Form, Input, Modal } from 'antd';
 import { useState } from 'react';
 import Join from './modal/Join';
@@ -26,6 +26,7 @@ const Login = () => {
       }
     });
   };
+
   return (
     <>
       <section className="login">
@@ -36,7 +37,7 @@ const Login = () => {
 
           <Form
             form={form}
-            name="horizontal_login"
+            name="login__form"
             layout="vertical"
             className="login__form"
             onFinish={handleLogin}

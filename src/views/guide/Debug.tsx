@@ -1,4 +1,3 @@
-import '@/assets/scss/pages/example.scss';
 import { Button, Divider } from 'antd';
 import { useNavigate } from 'react-router-dom';
 

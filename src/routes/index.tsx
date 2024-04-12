@@ -16,7 +16,6 @@ const Debug = React.lazy(() => import('@/views/guide/Debug.tsx'));
 const Leader = React.lazy(() => import('@/views/dev/leader'));
 const Store = React.lazy(() => import('@/views/dev/Store'));
 const Api = React.lazy(() => import('@/views/dev/Api'));
-const Device = React.lazy(() => import('@/views/dev/Device'));
 
 // User
 const Profile = React.lazy(() => import('@/views/user/Profile'));

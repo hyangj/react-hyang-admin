@@ -1,4 +1,3 @@
-import '@/assets/scss/pages/example.scss';
 import useAppStore from '@/store/appStore.ts';
 import { Button, Divider, List } from 'antd';
 

@@ -1,13 +1,12 @@
 .login {
-  @apply bg-[#f3f5f7] w-screen h-screen;
+  @apply bg-[#f3f5f7] w-screen h-screen flex items-center justify-center;
 }
 
 .login__box {
-  position: absolute;
-  top: calc(50% - 20rem);
-  left: calc(50% - 17rem);
+  position: relative;
   border-radius: 1.2rem;
   padding: 2rem 2rem 4rem;
+  width: 100%;
   max-width: 40rem;
   box-shadow: 0px 0px 3px #00000014;
   background-color: white;
@@ -52,7 +51,6 @@
   .login__box {
     padding: 4rem 4rem 8rem;
     max-width: 50rem;
-    left: calc(50% - 20rem);
   }
 
   .login__form {

@@ -1,5 +1,5 @@
 import useAppStore from '@/store/appStore.ts';
-import { logout } from '@/utils/auth.tsx';
+import { logout } from '@/utils/auth.ts';
 import {
   LogoutOutlined,
   MenuFoldOutlined,

@@ -1,35 +1,31 @@
 import { apiUser } from '@/services/user';
 import { Button, Divider, Form, Input, Modal } from 'antd';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 interface JoinType {
   cancel: () => void;
 }
 
 interface JoinFormType {
-  user_name: string;
-  phone_number: string;
-  user_birth: string;
-  email: string;
-  user_id: string;
-  password: string;
+  join_user_name: string;
+  join_phone_number: string;
+  join_user_birth: string;
+  join_email: string;
+  join_user_id: string;
+  join_password: string;
 }
 
 const Join = ({ cancel }: JoinType) => {
   const [isConfirmId, setIsConfirmId] = useState(false);
-  const [form] = Form.useForm();
+  const [joinForm] = Form.useForm();
   const { info, error } = Modal;
 
-  useEffect(() => {
-    form.resetFields();
-  });
-
   const handleCheckDupliCated = async () => {
-    const user_id = form.getFieldValue('user_id');
+    const user_id = joinForm.getFieldValue('join_user_id');
 
     try {
       const { data } = await apiUser.getUser(user_id);
-      console.log('reulst: ', data);
+
       if (data) {
         error({
           title: 'Error',
@@ -59,12 +55,12 @@ const Join = ({ cancel }: JoinType) => {
     }
 
     const param = {
-      user_name: values.user_name,
-      phone_number: values.phone_number,
-      user_birth: values.user_birth,
-      email: values.email,
-      user_id: values.user_id,
-      password: values.password,
+      user_name: values.join_user_name,
+      phone_number: values.join_phone_number,
+      user_birth: values.join_user_birth,
+      email: values.join_email,
+      user_id: values.join_user_id,
+      password: values.join_password,
     };
 
     try {
@@ -77,7 +73,7 @@ const Join = ({ cancel }: JoinType) => {
         onOk: () => cancel(),
       });
 
-      form.resetFields();
+      joinForm.resetFields();
     } catch (e) {
       error({
         title: 'Error',
@@ -97,21 +93,21 @@ const Join = ({ cancel }: JoinType) => {
       footer={(_, { CancelBtn }) => (
         <>
           <CancelBtn />
-          <Button type="primary" htmlType="submit" onClick={() => form.submit()}>
+          <Button type="primary" htmlType="submit" onClick={() => joinForm.submit()}>
             회원가입
           </Button>
         </>
       )}
     >
       <Form
-        form={form}
-        name="horizontal_login"
+        form={joinForm}
+        name="join__form"
         layout="vertical"
         className="py-[3rem]"
         onFinish={onFinish}
       >
         <Form.Item
-          name="user_name"
+          name="join_user_name"
           label="이름"
           rules={[{ required: true, message: '이름을 입력해주세요.' }]}
         >
@@ -119,7 +115,7 @@ const Join = ({ cancel }: JoinType) => {
         </Form.Item>
 
         <Form.Item
-          name="phone_number"
+          name="join_phone_number"
           label="휴대폰번호"
           rules={[{ required: true, message: '휴대폰번호를 입력해주세요.' }]}
         >
@@ -127,7 +123,7 @@ const Join = ({ cancel }: JoinType) => {
         </Form.Item>
 
         <Form.Item
-          name="user_birth"
+          name="join_user_birth"
           label="생년월일"
           rules={[{ required: true, message: '생년월일을 입력해주세요.' }]}
         >
@@ -135,7 +131,7 @@ const Join = ({ cancel }: JoinType) => {
         </Form.Item>
 
         <Form.Item
-          name="email"
+          name="join_email"
           label="이메일"
           rules={[{ required: true, message: '이메일을 입력해주세요.' }]}
         >
@@ -145,7 +141,7 @@ const Join = ({ cancel }: JoinType) => {
         <Divider />
 
         <Form.Item
-          name="user_id"
+          name="join_user_id"
           label="아이디"
           rules={[{ required: true, message: '아이디를 입력해주세요.' }]}
         >
@@ -163,7 +159,7 @@ const Join = ({ cancel }: JoinType) => {
         </Form.Item>
 
         <Form.Item
-          name="password"
+          name="join_password"
           label="비밀번호"
           rules={[{ required: true, message: '비밀번호를 입력해주세요.' }]}
         >
