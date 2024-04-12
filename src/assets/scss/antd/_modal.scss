@@ -2,10 +2,11 @@
   top: 20%;
 
   .ant-modal-content {
-    @apply py-[2rem] px-0;
+    padding: 2rem 0;
 
     >* {
-      @apply px-[2.4rem];
+      padding-left: 2.4rem;
+      padding-right: 2.4rem;
     }
   }
 }
@@ -21,6 +22,6 @@
   top: 40%;
 
   .ant-modal-content {
-    @apply p-[2rem];
+    padding: 2rem;
   }
 }

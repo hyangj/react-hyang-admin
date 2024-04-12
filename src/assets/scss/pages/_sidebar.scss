@@ -73,23 +73,25 @@
 }
 
 .sidebar__logo {
-  @apply flex items-center justify-center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   img {
-    @apply h-[2.5rem];
+    height: 2.5rem;
   }
 }
 
 .sidebar__menu {
-  @apply pt-[2rem];
-
+  padding-top: 2rem;
 
   .sidebar__menu-item+.sidebar__menu-item {
-    @apply pt-[2.8rem];
+    padding-top: 2.8rem;
   }
 
   .menu__title {
-    @apply flex items-center;
+    display: flex;
+    align-items: center;
     height: 4.8rem;
     font-size: 1.8rem;
     color: rgb(255, 255, 255);
@@ -99,25 +101,34 @@
   }
 
   .sidebar__subMenu-item {
-    @apply flex items-center w-full h-[4.4rem] text-[1.4rem] font-[400] leading-[2rem] no-underline cursor-pointer;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 4.4rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 2rem;
+    text-decoration: none;
+    cursor: pointer;
     letter-spacing: 0px;
     transition: color 0.3s;
     white-space: nowrap;
     color: rgb(154, 154, 154);
 
     &.selected {
-      @apply text-white;
+      color: var(--ui-white);
     }
 
     a {
-      @apply text-current no-underline;
+      color: currentColor;
+      text-decoration: none;
     }
 
     &:hover {
-      @apply text-white;
+      color: var(--ui-white);
 
       a {
-        @apply text-current;
+        color: currentColor;
       }
     }
   }
@@ -147,7 +158,7 @@
   }
 
   >.content {
-    @apply p-[4rem];
+    padding: 4rem;
     min-width: 35rem;
     overflow: auto;
     height: calc(100vh - $header-height);

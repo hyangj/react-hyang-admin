@@ -12,6 +12,7 @@
 }
 
 .is-required::after {
-  @apply content-['*'] text-orange-600 pl-1;
-
+  content: '';
+  color: orange;
+  padding-left: 0.4rem;
 }

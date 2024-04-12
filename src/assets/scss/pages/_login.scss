@@ -1,5 +1,10 @@
 .login {
-  @apply bg-[#f3f5f7] w-screen h-screen flex items-center justify-center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f5f7;
+  width: 100vw;
+  height: 100vh
 }
 
 .login__box {
@@ -17,19 +22,24 @@
 }
 
 .login__title {
-  @apply flex text-[3.6rem] font-bold mb-[4rem];
+  display: flex;
+  font-size: 3.6rem;
+  font-weight: bold;
+  margin-bottom: 4rem;
 
   span {
-    @apply pt-[0.5rem] pl-[1rem];
+    padding-top: 0.5rem;
+    padding-left: 1rem;
   }
 }
 
 .login__description {
-  @apply flex justify-center;
+  display: flex;
+  justify-content: center;
   color: var(--ui-gray180);
 
   span {
-    @apply cursor-pointer;
+    cursor: pointer;
 
     &:hover {
       color: var(--ui-gray200);
@@ -41,7 +51,7 @@
     &::before {
       content: '';
       border-left: 1px solid var(--ui-gray180);
-      @apply mx-3;
+      margin: 0 1.2rem;
     }
   }
 }

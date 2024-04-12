@@ -1,5 +1,5 @@
 .header {
-  @apply bg-white;
+  background-color: var(--ui-white);
   height: $header-height;
   position: sticky;
   z-index: 1;
